@@ -1,0 +1,15 @@
+.kdev4/
+Unknown/
+build/
+launchAndKill.sh
+launchWithROS.h
+launchWithROS.sh
+libs/cyphy-elas-ros/
+libs/libelas/
+matlab/
+paper/
+papers/
+TITS/
+launch/.directory
+params/eth_videos.yaml
+voxel_grid_tracking.kdev4

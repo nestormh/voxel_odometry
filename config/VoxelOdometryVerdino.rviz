@@ -1,0 +1,1412 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 78
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /Status1
+        - /Grid1
+        - /TF1/Frames1
+        - /TF1/Tree1
+        - /voxel_grid_tracking1
+        - /voxel_grid_tracking1/debugPointCloud1
+        - /voxel_grid_tracking1/FullScene1
+        - /voxel_grid_tracking1/debugSegment1
+        - /voxel_grid_tracking1/OFlow1
+        - /voxel_grid_tracking1/Voxels1
+        - /voxel_grid_tracking1/VoxelsIdx1
+        - /voxel_grid_tracking1/ObstaclesPointCloud1
+        - /voxel_grid_tracking1/Particles2
+        - /voxel_grid_tracking1/Particles2/particles01
+        - /voxel_grid_tracking1/Particles2/particles11
+        - /voxel_grid_tracking1/Particles2/particles21
+        - /voxel_grid_tracking1/Particles2/particles31
+        - /voxel_grid_tracking1/Particles2/particlesD1
+        - /voxel_grid_tracking1/ObstacleCubes1
+        - /voxel_grid_tracking1/SpeedText1
+        - /voxel_grid_tracking1/fakeParticles1
+        - /voxel_grid_tracking1/fakePointCloud1
+        - /StereoAndOdom1/InputCloudStereo1
+        - /StereoAndOdom1/LeftImg1
+        - /StereoAndOdom1/RightImg1
+        - /StereoAndOdom1/Velodyne1
+        - /dynamic_obstacles1/FreeCells1
+        - /dynamic_obstacles1/Octomap1
+        - /Evaluation1/ImageGT1
+        - /Evaluation1/ImageRT1
+        - /Evaluation1/dbgROIs1
+        - /DemoLZ1/Undistorted1/Right1
+        - /DemoLZ1/Undistorted1/Left1
+        - /DemoLZ1/Rectified1/Left_rectified1
+        - /Navigation1
+        - /Navigation1/Footprint1
+        - /Navigation1/global_costmap1
+        - /Navigation1/Temptativetrajs1
+        - /Navigation1/global_plan1
+        - /Navigation1/local_costmap1
+        - /Navigation1/VerdinoModel1
+        - /WinnerPath1
+        - /Odometry1
+      Splitter Ratio: 0.298137
+    Tree Height: 756
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Nav Goal1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.588679
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Experimental: false
+    Name: Time
+    SyncMode: 0
+    SyncSource: ObstaclesPointCloud
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.03
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 6
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 60
+      Reference Frame: base_footprint
+      Value: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        back_panel_link:
+          Value: true
+        base_footprint:
+          Value: true
+        base_link:
+          Value: true
+        chassis:
+          Value: true
+        control_box_link:
+          Value: true
+        fake_chassis_link:
+          Value: true
+        front_panel_link:
+          Value: true
+        gps:
+          Value: true
+        imu:
+          Value: true
+        left_laser_link:
+          Value: true
+        map:
+          Value: true
+        odom:
+          Value: true
+        rear_laser_link:
+          Value: true
+        right_laser_link:
+          Value: true
+        roof_link:
+          Value: true
+        seats_link:
+          Value: true
+        stereo_ps4:
+          Value: true
+        utm:
+          Value: true
+        velodyne:
+          Value: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        utm:
+          map:
+            odom:
+              base_footprint:
+                base_link:
+                  chassis:
+                    {}
+                  gps:
+                    {}
+                  imu:
+                    {}
+                  left_laser_link:
+                    {}
+                  rear_laser_link:
+                    {}
+                  right_laser_link:
+                    {}
+                  roof_link:
+                    back_panel_link:
+                      {}
+                    control_box_link:
+                      {}
+                    fake_chassis_link:
+                      {}
+                    front_panel_link:
+                      {}
+                    seats_link:
+                      {}
+                  stereo_ps4:
+                    {}
+                  velodyne:
+                    {}
+      Update Interval: 0
+      Value: true
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: Intensity
+          Decay Time: 0
+          Enabled: false
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: 0
+          Min Color: 0; 0; 0
+          Min Intensity: 0
+          Name: debugPointCloud
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 10
+          Size (m): 0.01
+          Style: Points
+          Topic: /filters/psz/output
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: false
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 0; 255; 0
+          Color Transformer: Intensity
+          Decay Time: 0
+          Enabled: false
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: 129
+          Min Color: 0; 0; 0
+          Min Intensity: 0
+          Name: FullScene
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 2
+          Size (m): 0.01
+          Style: Points
+          Topic: /voxel_grid_tracking/obstaclesPointCloud
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: false
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: normal_x
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: RGB8
+          Decay Time: 0
+          Enabled: false
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: 0
+          Min Color: 0; 0; 0
+          Min Intensity: 0
+          Name: debugSegment
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 10
+          Size (m): 0.01
+          Style: Points
+          Topic: /voxel_grid_tracking/voxel_grid_tracking/debugSegment
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: false
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 0; 255
+          Color Transformer: FlatColor
+          Decay Time: 0
+          Enabled: false
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: 4096
+          Min Color: 0; 0; 0
+          Min Intensity: 0
+          Name: flowVectors
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 8
+          Size (m): 0.01
+          Style: Points
+          Topic: /voxel_grid_tracking/flow_vectors
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: false
+        - Arrow Length: 0.5
+          Class: rviz/PoseArray
+          Color: 0; 255; 0
+          Enabled: false
+          Name: OFlow
+          Topic: /voxel_grid_tracking/voxel_grid_tracking/oflow_visualization
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /voxel_grid_tracking/voxel_grid_tracking/voxels
+          Name: Voxels
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /voxel_grid_tracking/voxel_grid_tracking/voxelsIdx
+          Name: VoxelsIdx
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /voxel_grid_tracking/voxel_grid_tracking/obstacles
+          Name: Obstacles
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 13.3894
+            Min Value: -25.2217
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: AxisColor
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: 171
+          Min Color: 0; 0; 0
+          Min Intensity: 0
+          Name: ObstaclesPointCloud
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.01
+          Style: Points
+          Topic: /verdino/point_cloud_footprint
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Arrow Length: 0.3
+          Class: rviz/PoseArray
+          Color: 255; 25; 0
+          Enabled: false
+          Name: Particles
+          Topic: /voxel_grid_tracking/voxel_grid_tracking/particlesSimple
+          Value: false
+        - Class: rviz/Group
+          Displays:
+            - Arrow Length: 0.3
+              Class: rviz/PoseArray
+              Color: 0; 0; 0
+              Enabled: true
+              Name: particles0
+              Topic: /voxel_grid_tracking/voxel_grid_tracking/particles0
+              Value: true
+            - Arrow Length: 0.3
+              Class: rviz/PoseArray
+              Color: 0; 255; 0
+              Enabled: true
+              Name: particles1
+              Topic: /voxel_grid_tracking/voxel_grid_tracking/particles1
+              Value: true
+            - Arrow Length: 0.3
+              Class: rviz/PoseArray
+              Color: 0; 0; 255
+              Enabled: true
+              Name: particles2
+              Topic: /voxel_grid_tracking/voxel_grid_tracking/particles2
+              Value: true
+            - Arrow Length: 0.3
+              Class: rviz/PoseArray
+              Color: 255; 0; 0
+              Enabled: true
+              Name: particles3
+              Topic: /voxel_grid_tracking/voxel_grid_tracking/particles3
+              Value: true
+            - Arrow Length: 0.3
+              Class: rviz/PoseArray
+              Color: 255; 0; 255
+              Enabled: true
+              Name: particlesD
+              Topic: /voxel_grid_tracking/voxel_grid_tracking/particlesD
+              Value: true
+          Enabled: false
+          Name: Particles
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /voxel_grid_tracking/voxel_grid_tracking/particles
+          Name: Particles
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: RGB8
+          Decay Time: 0
+          Enabled: false
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: 4096
+          Min Color: 0; 0; 0
+          Min Intensity: 0
+          Name: ParticlesPosition
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.01
+          Style: Points
+          Topic: /voxel_grid_tracking/voxel_grid_tracking/particlesPosition
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /voxel_grid_tracking/voxel_grid_tracking/mainVectors
+          Name: mainVectors
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /voxel_grid_tracking/voxel_grid_tracking/cubes
+          Name: ObstacleCubes
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /voxel_grid_tracking/voxel_grid_tracking/obstacleSpeed
+          Name: ObstacleSpeed
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /voxel_grid_tracking/voxel_grid_tracking/obstacleSpeedText
+          Name: SpeedText
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /voxel_grid_tracking/voxel_grid_tracking/tracks
+          Name: Tracks
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Arrow Length: 0.3
+          Class: rviz/PoseArray
+          Color: 255; 0; 0
+          Enabled: true
+          Name: fakeParticles
+          Topic: /verdino/voxel_odometry/fakeParticles
+          Value: true
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 0; 0; 0
+          Color Transformer: FlatColor
+          Decay Time: 0
+          Enabled: false
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: 4096
+          Min Color: 0; 0; 0
+          Min Intensity: 0
+          Name: fakePointCloud
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 10
+          Size (m): 0.2
+          Style: Points
+          Topic: /voxel_grid_tracking/voxel_grid_tracking/fakePointCloud
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: false
+      Enabled: true
+      Name: voxel_grid_tracking
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 0.1
+          Autocompute Intensity Bounds: false
+          Autocompute Value Bounds:
+            Max Value: 22.6035
+            Min Value: -4.77445
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: Intensity
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: 255
+          Min Color: 0; 0; 0
+          Min Intensity: 0
+          Name: InputCloudStereo
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.01
+          Style: Points
+          Topic: /verdino/velodyne_points
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Class: rviz/Image
+          Enabled: true
+          Image Topic: /stereo/right/image_rect_eyefish
+          Max Value: 1
+          Median window: 5
+          Min Value: 0
+          Name: LeftImg
+          Normalize Range: true
+          Queue Size: 2
+          Transport Hint: compressed
+          Value: true
+        - Class: rviz/Image
+          Enabled: false
+          Image Topic: /stereo/left/image_rect_color
+          Max Value: 1
+          Median window: 5
+          Min Value: 0
+          Name: RightImg
+          Normalize Range: true
+          Queue Size: 2
+          Transport Hint: raw
+          Value: false
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: Intensity
+          Decay Time: 0
+          Enabled: false
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: 142
+          Min Color: 0; 0; 0
+          Min Intensity: 0
+          Name: Velodyne
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 2
+          Size (m): 0.01
+          Style: Points
+          Topic: /verdino/velodyne_points
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: false
+        - Alpha: 1
+          Axes Length: 1
+          Axes Radius: 0.1
+          Class: rviz/Pose
+          Color: 255; 25; 0
+          Enabled: false
+          Head Length: 0.3
+          Head Radius: 0.1
+          Name: Pose
+          Shaft Length: 1
+          Shaft Radius: 0.05
+          Shape: Arrow
+          Topic: /stereo_odometer/pose
+          Value: false
+        - Angle Tolerance: 0.1
+          Class: rviz/Odometry
+          Color: 255; 25; 0
+          Enabled: false
+          Keep: 100
+          Length: 1
+          Name: Odometry
+          Position Tolerance: 0.1
+          Topic: /stereo_odometer/odometry
+          Value: false
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 166; 0
+          Color Transformer: FlatColor
+          Decay Time: 0
+          Enabled: false
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: 4096
+          Min Color: 0; 0; 0
+          Min Intensity: 0
+          Name: CleaningPointCloud
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.01
+          Style: Points
+          Topic: /voxel_grid_tracking/stereo_and_odom/fakePointCloud
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: false
+      Enabled: false
+      Name: StereoAndOdom
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 0.7
+          Class: rviz/Map
+          Color Scheme: map
+          Draw Behind: false
+          Enabled: true
+          Name: navigationMap
+          Topic: /verdino/nav_map
+          Value: true
+        - Alpha: 1
+          Axes Length: 1
+          Axes Radius: 0.1
+          Class: rviz/Pose
+          Color: 255; 25; 0
+          Enabled: false
+          Head Length: 0.3
+          Head Radius: 0.1
+          Name: Goal
+          Shaft Length: 1
+          Shaft Radius: 0.05
+          Shape: Arrow
+          Topic: /stereo_odometer/pose
+          Value: false
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 25; 255; 0
+          Enabled: true
+          Line Style: Lines
+          Line Width: 0.03
+          Name: globalPlan
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Topic: /verdino/move_base/TrajectoryPlannerROS/global_plan
+          Value: true
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 0; 42; 255
+          Color Transformer: FlatColor
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: -3.1875
+          Min Color: 0; 0; 0
+          Min Intensity: -3.1875
+          Name: temptativePaths
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.01
+          Style: Points
+          Topic: /verdino/temptativePaths
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 1
+          Class: rviz/Polygon
+          Color: 0; 0; 255
+          Enabled: true
+          Name: Footprint
+          Topic: /verdino/move_base/local_costmap/footprint_layer/footprint_stamped
+          Value: true
+        - Alpha: 0.7
+          Class: rviz/Map
+          Color Scheme: map
+          Draw Behind: false
+          Enabled: true
+          Name: local_costmap
+          Topic: /verdino/move_base/local_costmap/costmap
+          Value: true
+      Enabled: false
+      Name: LocalPlanner
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 0; 0
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: false
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: SegmentedPointCloud
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.01
+      Style: Points
+      Topic: /filters/voxel_grid/output
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: ""
+      Decay Time: 0
+      Enabled: false
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: DynamicObjects
+      Position Transformer: ""
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.01
+      Style: Points
+      Topic: /voxel_grid_tracking/voxel_grid_tracking/dynamic_objects
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /free_cells_vis_array
+          Name: FreeCells
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: Intensity
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: 4096
+          Min Color: 0; 0; 0
+          Min Intensity: 0
+          Name: Octomap
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.01
+          Style: Points
+          Topic: /octomap_point_cloud_centers
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+      Enabled: false
+      Name: dynamic_obstacles
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/Image
+          Enabled: true
+          Image Topic: /voxel_grid_tracking/gtImgPub/image_raw
+          Max Value: 1
+          Median window: 5
+          Min Value: 0
+          Name: ImageGT
+          Normalize Range: true
+          Queue Size: 2
+          Transport Hint: raw
+          Value: true
+        - Class: rviz/Image
+          Enabled: true
+          Image Topic: /voxel_grid_tracking/rtImgPub/image_raw
+          Max Value: 1
+          Median window: 5
+          Min Value: 0
+          Name: ImageRT
+          Normalize Range: true
+          Queue Size: 2
+          Transport Hint: raw
+          Value: true
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 0; 0
+          Color Transformer: FlatColor
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 0; 0
+          Max Intensity: 4096
+          Min Color: 0; 0; 0
+          Min Intensity: 0
+          Name: dbgROIs
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.5
+          Style: Spheres
+          Topic: /voxel_grid_tracking/dbgROIs
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /voxel_grid_tracking/dbgSpeedGT
+          Name: gtSpeed
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+      Enabled: false
+      Name: Evaluation
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/Group
+          Displays:
+            - Class: rviz/Image
+              Enabled: true
+              Image Topic: /voxel_grid_tracking/stereo_and_odom/right/image_color
+              Max Value: 1
+              Median window: 5
+              Min Value: 0
+              Name: Right
+              Normalize Range: true
+              Queue Size: 2
+              Transport Hint: raw
+              Value: true
+            - Class: rviz/Image
+              Enabled: true
+              Image Topic: /voxel_grid_tracking/stereo_and_odom/left/image_color
+              Max Value: 1
+              Median window: 5
+              Min Value: 0
+              Name: Left
+              Normalize Range: true
+              Queue Size: 2
+              Transport Hint: raw
+              Value: true
+          Enabled: false
+          Name: Undistorted
+        - Class: rviz/Group
+          Displays:
+            - Class: rviz/Image
+              Enabled: true
+              Image Topic: /voxel_grid_tracking/stereo_and_odom/left/image_color
+              Max Value: 1
+              Median window: 5
+              Min Value: 0
+              Name: Left_distorted
+              Normalize Range: true
+              Queue Size: 2
+              Transport Hint: raw
+              Value: true
+            - Class: rviz/Image
+              Enabled: true
+              Image Topic: /voxel_grid_tracking/stereo_and_odom/right/image_color
+              Max Value: 1
+              Median window: 5
+              Min Value: 0
+              Name: Right_distorted
+              Normalize Range: true
+              Queue Size: 2
+              Transport Hint: raw
+              Value: true
+            - Class: rviz/Image
+              Enabled: true
+              Image Topic: /voxel_grid_tracking/stereo_and_odom/left/image_rect_color
+              Max Value: 1
+              Median window: 5
+              Min Value: 0
+              Name: Left_rectified
+              Normalize Range: true
+              Queue Size: 2
+              Transport Hint: raw
+              Value: true
+            - Class: rviz/Image
+              Enabled: true
+              Image Topic: /voxel_grid_tracking/stereo_and_odom/right/image_rect_color
+              Max Value: 1
+              Median window: 5
+              Min Value: 0
+              Name: Right_rectified
+              Normalize Range: true
+              Queue Size: 2
+              Transport Hint: raw
+              Value: true
+          Enabled: false
+          Name: Rectified
+        - Class: rviz/Group
+          Displays:
+            - Class: rviz/Image
+              Enabled: true
+              Image Topic: /voxel_grid_tracking/stereo_and_odom/left/image_rect_color
+              Max Value: 1
+              Median window: 5
+              Min Value: 0
+              Name: Left
+              Normalize Range: true
+              Queue Size: 2
+              Transport Hint: raw
+              Value: true
+            - Class: rviz/Image
+              Enabled: true
+              Image Topic: /voxel_grid_tracking/stereo_and_odom/right/image_rect_color
+              Max Value: 1
+              Median window: 5
+              Min Value: 0
+              Name: Right
+              Normalize Range: true
+              Queue Size: 2
+              Transport Hint: raw
+              Value: true
+            - Alpha: 1
+              Autocompute Intensity Bounds: true
+              Autocompute Value Bounds:
+                Max Value: 10
+                Min Value: -10
+                Value: true
+              Axis: Z
+              Channel Name: intensity
+              Class: rviz/PointCloud2
+              Color: 255; 255; 255
+              Color Transformer: RGB8
+              Decay Time: 0
+              Enabled: true
+              Invert Rainbow: false
+              Max Color: 255; 255; 255
+              Max Intensity: 4096
+              Min Color: 0; 0; 0
+              Min Intensity: 0
+              Name: PointCloud
+              Position Transformer: XYZ
+              Queue Size: 10
+              Selectable: true
+              Size (Pixels): 3
+              Size (m): 0.01
+              Style: Points
+              Topic: /voxel_grid_tracking/elas_ros/point_cloud
+              Use Fixed Frame: true
+              Use rainbow: true
+              Value: true
+          Enabled: false
+          Name: PointCloud
+      Enabled: false
+      Name: DemoLZ
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Class: rviz/Polygon
+          Color: 0; 0; 255
+          Enabled: true
+          Name: Footprint
+          Topic: /verdino/move_base/local_costmap/obstacle_layer_footprint/footprint_stamped
+          Value: true
+        - Alpha: 0.7
+          Class: rviz/Map
+          Color Scheme: map
+          Draw Behind: false
+          Enabled: true
+          Name: Map
+          Topic: /verdino/map
+          Value: true
+        - Alpha: 0.7
+          Class: rviz/Map
+          Color Scheme: costmap
+          Draw Behind: true
+          Enabled: false
+          Name: global_costmap
+          Topic: /verdino/move_base/global_costmap/costmap
+          Value: false
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 0; 0; 255
+          Color Transformer: FlatColor
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: 2.29204
+          Min Color: 0; 0; 0
+          Min Intensity: 0.421186
+          Name: Temptativetrajs
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.01
+          Style: Points
+          Topic: /verdino/temptativePaths
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 25; 255; 0
+          Enabled: true
+          Line Style: Lines
+          Line Width: 0.03
+          Name: global_plan
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Topic: /verdino/move_base/GrullNavfnROS/plan
+          Value: true
+        - Alpha: 0.7
+          Class: rviz/Map
+          Color Scheme: costmap
+          Draw Behind: true
+          Enabled: true
+          Name: local_costmap
+          Topic: /verdino/move_base/local_costmap/costmap
+          Value: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+          Name: VerdinoModel
+          Robot Description: /verdino/robot_description
+          TF Prefix: ""
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+      Enabled: false
+      Name: Navigation
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 0; 0
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: false
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 0.0458023
+      Min Color: 0; 0; 0
+      Min Intensity: 0.0458023
+      Name: WinnerPath
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.01
+      Style: Points
+      Topic: /verdino/winnerPath
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Angle Tolerance: 1e-05
+      Class: rviz/Odometry
+      Color: 255; 25; 0
+      Enabled: true
+      Keep: 100
+      Length: 1
+      Name: Odometry
+      Position Tolerance: 1e-05
+      Topic: /verdino/voxel_odometry/odom
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 220; 220; 220
+    Fixed Frame: map
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Topic: /verdino/initialpose
+    - Class: rviz/SetGoal
+      Topic: /verdino/move_base_simple/goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: /clicked_point
+  Value: true
+  Views:
+    Current:
+      Class: rviz/XYOrbit
+      Distance: 4.53449
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.06
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: -0.639034
+        Y: 4.19406
+        Z: -0.403068
+      Name: Current View
+      Near Clip Distance: 0.01
+      Pitch: 1.5698
+      Target Frame: velodyne
+      Value: VideoBahnhoffAbove
+      Yaw: 1.50493
+    Saved:
+      - Class: rviz/XYOrbit
+        Distance: 20.0678
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.06
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0.857913
+          Y: 16.7173
+          Z: -2.11937e-06
+        Name: XYOrbit
+        Near Clip Distance: 0.01
+        Pitch: -0.0551987
+        Target Frame: base_link
+        Value: XYOrbit (rviz)
+        Yaw: 4.66858
+      - Class: rviz/XYOrbit
+        Distance: 6.16943
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.06
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0.390939
+          Y: 8.14143
+          Z: -1.76174e-06
+        Name: XYOrbit
+        Near Clip Distance: 0.01
+        Pitch: 0.149801
+        Target Frame: base_link
+        Value: Path
+        Yaw: 4.68858
+      - Class: rviz/XYOrbit
+        Distance: 13.8379
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.06
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0.113404
+          Y: 5.34844
+          Z: -2.35779e-06
+        Name: XYOrbit
+        Near Clip Distance: 0.01
+        Pitch: 0.194801
+        Target Frame: base_link
+        Value: PAth2
+        Yaw: 4.68858
+      - Class: rviz/XYOrbit
+        Distance: 11.4942
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.06
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 4.25805
+          Y: 10.6426
+          Z: -3.31146e-06
+        Name: XYOrbit
+        Near Clip Distance: 0.01
+        Pitch: -0.0101989
+        Target Frame: base_link
+        Value: elasVsbtsgm
+        Yaw: 2.97358
+      - Class: rviz/XYOrbit
+        Distance: 8.79301
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.06
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 1.26875
+          Y: 6.39413
+          Z: -0.403066
+        Name: XYOrbit
+        Near Clip Distance: 0.01
+        Pitch: 0.0402037
+        Target Frame: left_cam
+        Value: testsVideoPeatonal
+        Yaw: 4.57174
+      - Class: rviz/XYOrbit
+        Distance: 6.79089
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.06
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 1.08238
+          Y: 1.2549
+          Z: -0.403067
+        Name: XYOrbit
+        Near Clip Distance: 0.01
+        Pitch: -0.0147963
+        Target Frame: left_cam
+        Value: VideoBahnhoff
+        Yaw: 3.12673
+      - Class: rviz/XYOrbit
+        Distance: 8.06214
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.06
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 2.24123
+          Y: 1.10835
+          Z: -0.403067
+        Name: XYOrbit
+        Near Clip Distance: 0.01
+        Pitch: 0.265204
+        Target Frame: velodyne
+        Value: VideoBahnhoffAbove
+        Yaw: 3.14173
+      - Class: rviz/XYOrbit
+        Distance: 3.87992
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.06
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0.0769051
+          Y: 1.34265
+          Z: -0.403068
+        Name: XYOrbit
+        Near Clip Distance: 0.01
+        Pitch: 0.355204
+        Target Frame: velodyne
+        Value: VerdinoITERAbove
+        Yaw: 1.57173
+      - Class: rviz/XYOrbit
+        Distance: 3.87992
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.06
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0.0769051
+          Y: 1.34265
+          Z: -0.403068
+        Name: XYOrbit
+        Near Clip Distance: 0.01
+        Pitch: 0.355204
+        Target Frame: velodyne
+        Value: VideoBahnhoffAbove
+        Yaw: 1.57173
+      - Class: rviz/XYOrbit
+        Distance: 4.10056
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.06
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0.00890449
+          Y: -0.328575
+          Z: -0.403068
+        Name: XYOrbit
+        Near Clip Distance: 0.01
+        Pitch: 0.320204
+        Target Frame: velodyne
+        Value: VideoBahnhoffAbove
+        Yaw: 1.65673
+Window Geometry:
+  Displays:
+    collapsed: true
+  Height: 975
+  Hide Left Dock: true
+  Hide Right Dock: true
+  ImageGT:
+    collapsed: false
+  ImageRT:
+    collapsed: false
+  Left:
+    collapsed: false
+  LeftImg:
+    collapsed: false
+  Left_distorted:
+    collapsed: false
+  Left_rectified:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd0000000400000000000002990000037ffc0200000009fb000000100044006900730070006c00610079007300000000330000037f000000d801000005fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000033000002790000006901000005fb0000001200530065006c0065006300740069006f006e00000002d80000009b0000006901000005fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000c00430061006d00650072006100000002450000009e0000000000000000000000010000010f00000279fc0200000003fb0000000a00560069006500770073000000003300000279000000ab01000005fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000001200530065006c0065006300740069006f006e010000025a000000b20000000000000000000000020000055200000120fc010000000efb0000000e004c0065006600740049006d006702000003ed0000002f0000015400000118fb00000008004c0065006600740000000000000002640000005001000005fb0000000a005200690067006800740000000267000002990000005701000005fc00000000000002800000000000fffffffaffffffff0200000002fb0000001c004c006500660074005f0072006500630074006900660069006500640000000000ffffffff0000001d01000005fb0000001c004c006500660074005f0064006900730074006f00720074006500640000000033000002050000001d01000005fc000002830000027d0000000000fffffffaffffffff0200000002fb0000001e00520069006700680074005f0072006500630074006900660069006500640000000000ffffffff0000001d01000005fb0000001e00520069006700680074005f0064006900730074006f00720074006500640000000033000002050000001d01000005fb00000008004c0065006600740000000000000002810000005001000005fb0000000a0052006900670068007400000002840000027c0000005701000005fb0000000e0049006d006100670065004700540000000000000005000000006a01000005fb0000000e0049006d006100670065005200540000000000000005000000006a01000005fb0000000e0049006d0061006700650047005401000002610000029f0000000000000000fb00000010005200690067006800740049006d0067020000036d000000f00000016400000120fb0000000e004c0065006600740049006d006700000000000000027f0000000000000000fb00000010005200690067006800740049006d00670000000000000005000000000000000000fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000005560000003efc0100000002fb0000000800540069006d00650000000000000005560000027801000005fb0000000800540069006d00650100000000000004500000000000000000000005000000037f00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Right:
+    collapsed: false
+  RightImg:
+    collapsed: false
+  Right_distorted:
+    collapsed: false
+  Right_rectified:
+    collapsed: false
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: true
+  Width: 1280
+  X: 1364
+  Y: -3
