@@ -213,58 +213,58 @@ VoxelOdometry::VoxelOdometry()
     nh.param("queue_size", queue_size, 10);
     nh.param("input_from_cameras", m_inputFromCameras, true);
     
-    if (m_inputFromCameras) {
-        m_leftCameraInfoSub.subscribe(nh, left_info_topic, 1);
-        m_rightCameraInfoSub.subscribe(nh, right_info_topic, 1);
-        m_pointCloudSub.subscribe(nh, "pointCloud", 10);
-        
-        if (m_useOFlow) {
-
-            m_oFlowSub.subscribe(nh, "flow_vectors", 10);
-            m_oFlowCloud.reset(new pcl::PointCloud<pcl::PointXYZRGBNormal>);
-            
-            if (approx)
-            {
-                m_approxSynchronizerOFlow.reset( new ApproximateSyncOFlow(ApproximatePolicyOFlow(queue_size),
-                                                                        m_pointCloudSub, m_oFlowSub, 
-                                                                        m_leftCameraInfoSub, 
-                                                                        m_rightCameraInfoSub) );
-                m_approxSynchronizerOFlow->registerCallback(boost::bind(&VoxelOdometry::pointCloudCallback, 
-                                                                        this, _1, _2, _3, _4));
-            }
-            else
-            {
-                m_exactSynchronizerOFlow.reset( new ExactSyncOFlow(ExactPolicyOFlow(queue_size),
-                                                                        m_pointCloudSub, m_oFlowSub, 
-                                                                        m_leftCameraInfoSub, 
-                                                                        m_rightCameraInfoSub) );
-                m_exactSynchronizerOFlow->registerCallback(boost::bind(&VoxelOdometry::pointCloudCallback, 
-                                                                    this, _1, _2, _3, _4));
-            }
-        } else {
-            
-            if (approx)
-            {
-                m_approxSynchronizer.reset( new ApproximateSync(ApproximatePolicy(queue_size),
-                                                                m_pointCloudSub, 
-                                                                m_leftCameraInfoSub, 
-                                                                m_rightCameraInfoSub) );
-                m_approxSynchronizer->registerCallback(boost::bind(&VoxelOdometry::pointCloudCallback, 
-                                                                this, _1, _2, _3));
-            }
-            else
-            {
-                m_exactSynchronizer.reset( new ExactSync(ExactPolicy(queue_size),
-                                                            m_pointCloudSub,
-                                                            m_leftCameraInfoSub, 
-                                                            m_rightCameraInfoSub) );
-                m_exactSynchronizer->registerCallback(boost::bind(&VoxelOdometry::pointCloudCallback, 
-                                                                this, _1, _2, _3));
-            }
-        }
-    } else {
+//     if (m_inputFromCameras) {
+//         m_leftCameraInfoSub.subscribe(nh, left_info_topic, 1);
+//         m_rightCameraInfoSub.subscribe(nh, right_info_topic, 1);
+//         m_pointCloudSub.subscribe(nh, "pointCloud", 10);
+//         
+//         if (m_useOFlow) {
+// 
+//             m_oFlowSub.subscribe(nh, "flow_vectors", 10);
+//             m_oFlowCloud.reset(new pcl::PointCloud<pcl::PointXYZRGBNormal>);
+//             
+//             if (approx)
+//             {
+//                 m_approxSynchronizerOFlow.reset( new ApproximateSyncOFlow(ApproximatePolicyOFlow(queue_size),
+//                                                                         m_pointCloudSub, m_oFlowSub, 
+//                                                                         m_leftCameraInfoSub, 
+//                                                                         m_rightCameraInfoSub) );
+//                 m_approxSynchronizerOFlow->registerCallback(boost::bind(&VoxelOdometry::pointCloudCallback, 
+//                                                                         this, _1, _2, _3, _4));
+//             }
+//             else
+//             {
+//                 m_exactSynchronizerOFlow.reset( new ExactSyncOFlow(ExactPolicyOFlow(queue_size),
+//                                                                         m_pointCloudSub, m_oFlowSub, 
+//                                                                         m_leftCameraInfoSub, 
+//                                                                         m_rightCameraInfoSub) );
+//                 m_exactSynchronizerOFlow->registerCallback(boost::bind(&VoxelOdometry::pointCloudCallback, 
+//                                                                     this, _1, _2, _3, _4));
+//             }
+//         } else {
+//             
+//             if (approx)
+//             {
+//                 m_approxSynchronizer.reset( new ApproximateSync(ApproximatePolicy(queue_size),
+//                                                                 m_pointCloudSub, 
+//                                                                 m_leftCameraInfoSub, 
+//                                                                 m_rightCameraInfoSub) );
+//                 m_approxSynchronizer->registerCallback(boost::bind(&VoxelOdometry::pointCloudCallback, 
+//                                                                 this, _1, _2, _3));
+//             }
+//             else
+//             {
+//                 m_exactSynchronizer.reset( new ExactSync(ExactPolicy(queue_size),
+//                                                             m_pointCloudSub,
+//                                                             m_leftCameraInfoSub, 
+//                                                             m_rightCameraInfoSub) );
+//                 m_exactSynchronizer->registerCallback(boost::bind(&VoxelOdometry::pointCloudCallback, 
+//                                                                 this, _1, _2, _3));
+//             }
+//         }
+//     } else {
         m_pointCloudJustPointCloudSub = nh.subscribe<sensor_msgs::PointCloud2>("pointCloud", 10, boost::bind(&VoxelOdometry::pointCloudCallback, this, _1));
-    }
+//     }
     
     m_pointCloud.reset(new pcl::PointCloud<pcl::PointXYZRGB>);
     
@@ -299,6 +299,7 @@ VoxelOdometry::VoxelOdometry()
 
 void VoxelOdometry::pointCloudCallback(const sensor_msgs::PointCloud2::ConstPtr& msgPointCloud) 
 {
+    cout << __FUNCTION__ << ":" << __LINE__ << endl;
     m_cameraFrame = msgPointCloud->header.frame_id;
     try {
         m_tfListener.lookupTransform(m_mapFrame, m_poseFrame, msgPointCloud->header.stamp, m_pose2MapTransform);
@@ -583,7 +584,7 @@ void VoxelOdometry::getVoxelGridFromPointCloud(const PointCloudPtr& pointCloud)
     m_maxX = 20.0;
     m_minY = -20.0;
     m_maxY = 20.0;
-    m_minZ = 1.5;
+    m_minZ = 2.0;
     m_maxZ = 3.5;
     
     m_dimX = (m_maxX - m_minX) / m_cellSizeX;
@@ -1826,7 +1827,7 @@ void VoxelOdometry::publishOdom()
     cout << "PUBLISHING" << endl;
     //first, we'll publish the transform over tf
     geometry_msgs::TransformStamped odom_trans;
-    odom_trans.header.stamp = ros::Time::now();
+    odom_trans.header.stamp = m_lastPointCloudTime;
     odom_trans.header.frame_id = "odom";
     odom_trans.child_frame_id = m_poseFrame;
     
@@ -1836,11 +1837,11 @@ void VoxelOdometry::publishOdom()
     odom_trans.transform.rotation = odom_quat;
     
     //send the transform
-    m_odomBroadcaster.sendTransform(odom_trans);
+//     m_odomBroadcaster.sendTransform(odom_trans);
     
     //next, we'll publish the odometry message over ROS
     nav_msgs::Odometry odom;
-    odom.header.stamp = ros::Time();
+    odom.header.stamp = m_lastPointCloudTime;
     odom.header.frame_id = "odom";
     
     //set the position
@@ -1849,11 +1850,15 @@ void VoxelOdometry::publishOdom()
     odom.pose.pose.position.z = 0.0;
     odom.pose.pose.orientation = odom_quat;
     
+    odom.pose.covariance.assign(0.1f);
+    
     //set the velocity
     odom.child_frame_id = m_poseFrame;
     odom.twist.twist.linear.x = vx;
     odom.twist.twist.linear.y = vy;
     odom.twist.twist.angular.z = tmpQuat.getAngle() / m_deltaTime;
+    
+    odom.twist.covariance.assign(0.1f);
     
     //publish the message
     m_odomPub.publish(odom);
