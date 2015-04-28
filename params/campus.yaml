@@ -1,0 +1,11 @@
+psx:
+    filter_limit_min: 0.0
+    filter_limit_max: 30.0
+
+psy:
+    filter_limit_min: -4.0
+    filter_limit_max: 4.0
+
+psz:
+    filter_limit_min: -1.5
+    filter_limit_max: 5.0

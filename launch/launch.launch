@@ -11,7 +11,7 @@
             <remap from="~/deltaTime"
                    to="/$(arg namespace)/stereo_and_odom/deltaTime" />
             <remap from="~/pointCloud"
-                   to="/$(arg namespace)/point_cloud_footprint" />
+                   to="/$(arg namespace)/point_cloud_footprint_voxel_odom" />
             <remap from="~/flow_vectors"
                    to="/$(arg namespace)/flow_vectors" />
             <remap from="~/left/camera_info"
@@ -35,7 +35,7 @@
             <include file="$(find grull_transform_pointcloud)/launch/launch.launch">
                 <arg name="nodelet_name"     value="cam2footprint_pc_transform" />
                 <arg name="input_topic"     value="/$(arg namespace)/velodyne_points" />
-                <arg name="output_topic"    value="/$(arg namespace)/point_cloud_footprint"/>
+                <arg name="output_topic"    value="/$(arg namespace)/point_cloud_footprint_voxel_odom"/>
                 <arg name="target_frame"    value="base_footprint"/>
                 <arg name="nodelet_manager" value="box_filter_manager"/>
             </include>
@@ -43,7 +43,7 @@
         
         <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
             <param name="output_frame" value="odom"/>
-            <param name="freq" value="30.0"/>
+            <param name="freq" value="1000.0"/>
             <param name="sensor_timeout" value="1.0"/>
             <param name="odom_used" value="false"/>
             <param name="imu_used" value="false"/>

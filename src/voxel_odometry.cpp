@@ -263,7 +263,7 @@ VoxelOdometry::VoxelOdometry()
 //             }
 //         }
 //     } else {
-        m_pointCloudJustPointCloudSub = nh.subscribe<sensor_msgs::PointCloud2>("pointCloud", 10, boost::bind(&VoxelOdometry::pointCloudCallback, this, _1));
+        m_pointCloudJustPointCloudSub = nh.subscribe<sensor_msgs::PointCloud2>("pointCloud", 1, boost::bind(&VoxelOdometry::pointCloudCallback, this, _1));
 //     }
     
     m_pointCloud.reset(new pcl::PointCloud<pcl::PointXYZRGB>);
@@ -391,6 +391,7 @@ void VoxelOdometry::pointCloudCallback(const sensor_msgs::PointCloud2::ConstPtr&
  */
 void VoxelOdometry::compute(const PointCloudPtr& pointCloud)
 {
+    cout << __FILE__ << endl;
     voxel_odometry::stats timeStatsMsg;
     timeStatsMsg.header.seq = m_currentId;
     timeStatsMsg.header.stamp = ros::Time::now();
