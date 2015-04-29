@@ -1,79 +1,31 @@
 <launch>
     <arg name="namespace" default="verdino"/>
-    <arg name="test_name" default="verdino"/>
-    <arg name="use_ps4" default="false"/>
-    <arg name="use_elas" default="false"/>
-    <arg name="use_rsgm" default="false"/>
-    <arg name="use_velodyne" default="true"/>
     <arg name="show_rviz" default="true"/>
     <arg name="do_publish_intermediate_info" value="false" />
+    <arg name="wait_time_sequence_reader" default="200"/>
     
-    <arg name="voxel_tracking_params_file"
+    <arg name="voxel_odometry_params_file"
          default="$(find voxel_odometry)/params/voxel_odometry_verdino_params.yaml"/>
-
-    <arg name="use_bag" default="true"/>
-    <arg name="bag_name" default="/local/imaged/research_data/bags/pruebasEyefish2.bag"/>
-
-    <group if="$(arg use_bag)" >
-
-        <param name="use_sim_time" value="true"/>
     
-        <node pkg="tf" type="static_transform_publisher" name="map2odom" args="0 0 0 0 0 0 map odom 100" />
+    <node pkg="tf" type="static_transform_publisher" name="map_to_odom_static_transform"
+	    args="0.0 0.0 0.0 0.0 0.0 0.0 map odom 100" />
+    
+    <include file="$(find grull_verdino)/launch/bring_up/bring_up.launch">
+      <arg name="namespace"       value="verdino"/>
+      <arg name="base_controller" value="true"/>
+      <arg name="velodyne"        value="true"/>
+      <arg name="rear_laser"      value="false"/>
+      <arg name="do_clearing"     value="false"/>
+      <arg name="use_filters"     value="false"/>
+      <arg name="simulation"      value="false"/>
+    </include>
+    
+    <include file="$(find voxel_odometry)/launch/launch.launch">
+        <arg name="namespace" value="verdino"/>
+        <arg name="show_rviz" value="$(arg show_rviz)"/>
+	<arg name="do_publish_intermediate_info" value="false"/>
         
-<!--             <node pkg="tf" type="static_transform_publisher" name="odom2basefootprint" args="0 0 0 0 0 0 odom base_footprint 100" /> -->
-        
-        <node pkg="tf" type="static_transform_publisher" name="basefootprint2baselink" args="0 0 0 -1.57 0 0 base_footprint base_link 100" />
-        <node pkg="tf" type="static_transform_publisher" name="baselink2velodyne" args="0.27 0 1.45 0 0 0 base_link velodyne 100" />
-        
-<!--         <node pkg="tf" type="static_transform_publisher" name="map2odom2" args="0 0 0 0 0 0 map odom2 100" /> -->
-<!--         <node pkg="tf" type="static_transform_publisher" name="odom2basefootprint" args="0 0 0 0 0 0 odom base_footprint 10" /> -->
-    </group>
-    
-    <group ns="$(arg namespace)">
-
-<!--         <node launch-prefix="gdb &#45;&#45;args" name="voxel_odometry" pkg="voxel_odometry" type="voxel_odometry" output="screen" required="true" > -->
-<!--         <node launch-prefix="gdb -ex run &#45;&#45;args" name="voxel_odometry" pkg="voxel_odometry" type="voxel_odometry" output="screen" required="true" > -->
-        <node name="voxel_odometry" pkg="voxel_odometry" type="voxel_odometry" output="screen" required="true" >
-            <remap from="~/deltaTime"
-                   to="/$(arg namespace)/stereo_and_odom/deltaTime" />
-            <remap from="~/pointCloud"
-                   to="/$(arg namespace)/point_cloud_footprint" />
-            <remap from="~/flow_vectors"
-                   to="/$(arg namespace)/flow_vectors" />
-            <remap from="~/left/camera_info"
-                   to="/$(arg namespace)/stereo_and_odom/left/camera_info" />
-            <remap from="~/right/camera_info"
-                   to="/$(arg namespace)/stereo_and_odom/right/camera_info" />
-            <remap from="~/dbg/image_rect_color"
-                   to="/$(arg namespace)/stereo_and_odom/left/image_rect_color" />
-           <remap from="~fakePointCloud"
-                   to="/verdino/fakePointCloud" />
-            
-            <rosparam file="$(arg voxel_tracking_params_file)" command="load" ns="" />
-            
-            <param name="publish_intermediate_info" value="$(arg do_publish_intermediate_info)" />
-        </node>
-    
-        <group ns="filters">
-            <!-- PCL Manager -->
-            <node pkg="nodelet" type="nodelet" name="box_filter_manager" args="manager" output="screen" required="true" />
-            
-            <include file="$(find grull_transform_pointcloud)/launch/launch.launch">
-                <arg name="nodelet_name"     value="cam2footprint_pc_transform" />
-                <arg if="$(arg use_velodyne)" name="input_topic"     value="/verdino/velodyne_points" />
-                <arg name="output_topic"    value="/$(arg namespace)/point_cloud_footprint"/>
-                <arg name="target_frame"    value="base_footprint"/>
-                <arg name="nodelet_manager" value="box_filter_manager"/>
-            </include>
-        </group>
-    </group>
-    
-    <group if="$(arg show_rviz)">
-        <node pkg="rviz" type="rviz" name="rviz" required="false"  args="&#45;&#45;display-config 
-            $(find voxel_odometry)/config/VoxelOdometryVerdino.rviz"/>
-    </group>
-    
-    <node if="$(arg use_bag)" name="play" pkg="rosbag" type="play" required="true" 
-            args=" -r 1.0 -s 10 &#45;&#45;clock $(arg bag_name) 
-            &#45;&#45;topics /verdino/velodyne_points" />
+        <arg name="voxel_odometry_params_file"
+             value="$(find voxel_odometry)/params/voxel_odometry_verdino_params.yaml"/>
+    </include>
 </launch>

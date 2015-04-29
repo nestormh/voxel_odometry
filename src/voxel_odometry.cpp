@@ -585,7 +585,7 @@ void VoxelOdometry::getVoxelGridFromPointCloud(const PointCloudPtr& pointCloud)
     m_maxX = 20.0;
     m_minY = -20.0;
     m_maxY = 20.0;
-    m_minZ = 2.0;
+    m_minZ = 0.5;
     m_maxZ = 3.5;
     
     m_dimX = (m_maxX - m_minX) / m_cellSizeX;
@@ -1799,9 +1799,9 @@ void VoxelOdometry::publishOdom()
     
     const VoxelObstaclePtr & obst = m_obstacles[0];
     
-    const double & vx = -obst->vx();
-    const double & vy = -obst->vy();
-    const double & vz = -obst->vz();
+    double vx = -obst->vx();
+    double vy = -obst->vy();
+    double vz = -obst->vz();
 
     tf::Quaternion tmpQuat = getQuaternion(vx, vy, vz);
     
@@ -1817,7 +1817,7 @@ void VoxelOdometry::publishOdom()
     
     
     if ((vx < 0.3) && (vy < 0.3))
-        return;
+        vx=vy=vz=0.0;
     
     m_currX += vx * m_deltaTime;
     m_currY += vy * m_deltaTime;

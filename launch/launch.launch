@@ -29,7 +29,6 @@
         </node>
     
         <group ns="filters">
-            <!-- PCL Manager -->
             <node pkg="nodelet" type="nodelet" name="box_filter_manager" args="manager" output="screen" required="true" />
             
             <include file="$(find grull_transform_pointcloud)/launch/launch.launch">
@@ -41,7 +40,7 @@
             </include>
         </group>
         
-        <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+        <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf_voxel_odom">
             <param name="output_frame" value="odom"/>
             <param name="freq" value="1000.0"/>
             <param name="sensor_timeout" value="1.0"/>

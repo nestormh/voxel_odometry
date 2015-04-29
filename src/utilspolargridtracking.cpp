@@ -146,8 +146,8 @@ geometry_msgs::Point32 toPoint32(const pcl::PointXYZRGB & point) {
     
     return newPoint;
 }
-voxel_odometry::point_2d toPoint2D(const pcl::PointXYZRGB & point) {
-    voxel_odometry::point_2d newPoint;
+voxel_grid_tracking::point_2d toPoint2D(const pcl::PointXYZRGB & point) {
+    voxel_grid_tracking::point_2d newPoint;
     newPoint.u = point.x;
     newPoint.v = point.y;
     

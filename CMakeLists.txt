@@ -63,7 +63,7 @@ find_package(PCL 1.6 REQUIRED)
 # find_package(MPFR REQUIRED)
 
 # INCLUDE("${POLAR_CALIBRATION_PATH}/PolarCalibration.cmake")
-INCLUDE("libs/libElas.cmake")
+# INCLUDE("libs/libElas.cmake")
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
